@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gde-pass <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gde-pass <gde-pass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/09 16:44:30 by gde-pass          #+#    #+#              #
-#*   Updated: 2017/11/21 21:15:31 by                  ###   ########.fr       *#
+#    Updated: 2018/04/05 16:21:36 by gde-pass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-HEADERS = libft.h
+HEADERS = includes/
+
 SRCS = ft_putchar.c \
 	   ft_strlen.c \
 	   ft_putstr.c \
@@ -75,25 +76,30 @@ SRCS = ft_putchar.c \
 	   ft_lstdel.c \
 	   ft_lstadd.c \
 	   ft_lstiter.c \
-	   ft_lstmap.c
+	   ft_lstmap.c \
+	   get_next_line.c \
+	   ft_strjoin_free.c
 
-SRC = $(SRCS)
+SRC = $(addprefix srcs/,$(SRCS))
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $@ $^
-	ranlib $(NAME)
+	@ar rc $@ $^
+	@ranlib $(NAME)
+	@echo "\033[92m[LIBFT	BUILD]\033[0m"
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADERS)
+	@$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADERS)
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all, clean, fclean, re
