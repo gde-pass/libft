@@ -1,5 +1,7 @@
 # Libft
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0e3053f3ca145e4a8f1f3b9fed43701)](https://app.codacy.com/app/gde-pass/libft?utm_source=github.com&utm_medium=referral&utm_content=gde-pass/libft&utm_campaign=Badge_Grade_Dashboard)
+
 ![https://img.shields.io/badge/Grade-125%2F100-green.svg](https://img.shields.io/badge/Grade-125%2F100-green.svg)
 
 Ce premier projet en tant qu'étudiant de 42 va vous faire consolider vos acquis de piscine. Vous allez recoder un certain nombre de fonctions de la librairie C standard, ainsi que d'autres fonctions utilitaires que vous réutiliserez tout au long de votre cursus.
